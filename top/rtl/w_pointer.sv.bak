@@ -67,7 +67,12 @@ end
 
 // full condition
 always_ff @ (posedge w_clk) begin
-    full    <= write_full;
+    if (w_rst_n == 0) begin
+        full    <= 0;
+    end
+    else begin
+        full    <= write_full;
+    end
 end
 
 

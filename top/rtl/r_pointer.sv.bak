@@ -66,7 +66,12 @@ end
 
 // empty condition
 always_ff @ (posedge r_clk) begin
-    empty    <= read_empty;
+    if (r_rst_n == 0) begin
+        empty    <= 0;
+    end
+    else begin
+        empty    <= read_empty;
+    end
 end
 
     
